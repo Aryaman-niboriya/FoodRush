@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* FoodRush Brand Colors */
+  --primary: #b61323;
+  --primary-dim: #a4001a;
+  --primary-container: #ff7671;
+  --on-primary: #ffefee;
+  
+  --secondary: #006a2d;
+  --secondary-container: #6bff8f;
+  --on-secondary: #ceffd0;
+  
+  --tertiary: #0057bd;
+  --tertiary-container: #8ab0ff;
+  
+  /* Surface Colors */
+  --background: #f7f6f3;
+  --foreground: #2e2f2d;
+  --surface: #f7f6f3;
+  --surface-dim: #d4d5d1;
+  --surface-bright: #f7f6f3;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f1f1ee;
+  --surface-container: #e8e8e5;
+  --surface-container-high: #e3e3df;
+  --surface-container-highest: #ddddd9;
+  --on-surface: #2e2f2d;
+  --on-surface-variant: #5b5c5a;
+  
+  /* UI Colors */
+  --card: #ffffff;
+  --card-foreground: #2e2f2d;
+  --popover: #ffffff;
+  --popover-foreground: #2e2f2d;
+  --primary-foreground: #ffefee;
+  --secondary-foreground: #ceffd0;
+  --muted: #e8e8e5;
+  --muted-foreground: #5b5c5a;
+  --accent: #f1f1ee;
+  --accent-foreground: #2e2f2d;
+  --destructive: #b02500;
+  --destructive-foreground: #ffffff;
+  --border: #f1f1ee;
+  --input: #f1f1ee;
+  --ring: #b61323;
+  --outline: #767775;
+  --outline-variant: #adadab;
+  
+  /* Chart Colors */
+  --chart-1: #b61323;
+  --chart-2: #006a2d;
+  --chart-3: #0057bd;
+  --chart-4: #f59e0b;
+  --chart-5: #ff7671;
+  
+  --radius: 0.75rem;
+}
+
+
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-headline: var(--font-headline);
+  --font-body: var(--font-body);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dim: var(--primary-dim);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary: var(--on-secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-headline {
+    font-family: var(--font-headline);
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .glass {
+    background: rgba(247, 246, 243, 0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .grad-btn {
+    background: linear-gradient(135deg, #b61323, #ff7671);
+  }
+
+  .grad-btn:hover {
+    background: linear-gradient(135deg, #a4001a, #ff5a59);
+    transform: scale(1.02);
+  }
+
+  .grad-btn:active {
+    transform: scale(0.97);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #e8e8e5 25%, #f1f1ee 50%, #e8e8e5 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 0.5rem;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .fade-up-1 { animation-delay: 0.05s; }
+  .fade-up-2 { animation-delay: 0.12s; }
+  .fade-up-3 { animation-delay: 0.2s; }
+  .fade-up-4 { animation-delay: 0.28s; }
+}
