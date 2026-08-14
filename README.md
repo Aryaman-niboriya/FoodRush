@@ -18,7 +18,7 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 - 🔐 **JWT Authentication** — Secure login with role-based access control
 - 🍽️ **Restaurant Management** — Browse menus, filter by cuisine and ratings
